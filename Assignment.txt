@@ -1,0 +1,374 @@
+
+Write a program that converts a string “472” to a number
+472. Display the values & types in your browser. 
+
+// Original string
+var originalString = "472";
+
+// Convert the string to a number
+var convertedNumber = Number(originalString);
+
+// Display the values and types in the browser
+document.write("<p>Original String: " + originalString + "<br>Type of Original String: " + typeof originalString + "</p>");
+document.write("<p>Converted Number: " + convertedNumber + "<br>Type of Converted Number: " + typeof convertedNumber + "</p>");
+
+
+Write a program that takes user input. Convert and show the
+input in capital letters. 
+
+// Prompt the user for input
+var userInput = prompt("Enter a string:");
+
+// Convert the user input to uppercase
+var uppercaseString = userInput.toUpperCase();
+
+// Display the result to the user
+alert("Input in Capital Letters: " + uppercaseString);
+
+
+Write a program that takes user input. Convert and show the
+input in title case. 
+
+// Prompt the user for input
+var userInput = prompt("Enter a string:");
+
+// Function to convert a string to title case
+function toTitleCase(inputString) {
+  return inputString.replace(/\w\S*/g, function (word) {
+    return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase();
+  });
+}
+
+// Convert the user input to title case
+var titleCaseString = toTitleCase(userInput);
+
+// Display the result to the user
+alert("Input in Title Case: " + titleCaseString);
+
+
+You have an array A = [“cake”, “apple pie”, “cookie”, “chips”,
+“patties”] Write a program to enable “search by user input” in an
+array. After searching, prompt the user whether the given item is
+found in the list or not.
+
+// Array of items
+var A = ["cake", "apple pie", "cookie", "chips", "patties"];
+
+// Prompt the user for input
+var userInput = prompt("Enter the item you want to search:");
+
+// Convert the user input to lowercase for case-insensitive search
+userInput = userInput.toLowerCase();
+
+// Check if the item is found in the array
+var isItemFound = false;
+
+for (var i = 0; i < A.length; i++) {
+  // Convert the current array item to lowercase for case-insensitive comparison
+  var currentItem = A[i].toLowerCase();
+
+  if (currentItem === userInput) {
+    isItemFound = true;
+    break;
+  }
+}
+
+// Display the result to the user
+if (isItemFound) {
+  alert(userInput + " is found in the list!");
+} else {
+  alert(userInput + " is not found in the list.");
+}
+
+
+Generate the following series in your browser. See example output.
+a. Counting: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
+b. Reverse counting: 10, 9, 8, 7, 6, 5, 4, 3, 2, 1
+c. Even: 0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20
+d. Odd: 1, 3, 5, 7, 9, 11, 13, 15, 17, 19
+e. Series: 2k, 4k, 6k, 8k, 10k, 12k, 14k, 16k, 18k, 20k
+
+// Function to generate and display series
+function generateAndDisplaySeries(seriesType, start, end, step, suffix) {
+  var series = [];
+
+  // Generate the series based on the specified type
+  switch (seriesType) {
+    case 'counting':
+      for (var i = start; i <= end; i++) {
+        series.push(i);
+      }
+      break;
+    case 'reverseCounting':
+      for (var i = end; i >= start; i--) {
+        series.push(i);
+      }
+      break;
+    case 'even':
+      for (var i = start; i <= end; i += step) {
+        series.push(i);
+      }
+      break;
+    case 'odd':
+      for (var i = start; i <= end; i += step) {
+        series.push(i);
+      }
+      break;
+    case 'custom':
+      for (var i = start; i <= end; i += step) {
+        series.push(i + suffix);
+      }
+      break;
+    default:
+      console.log("Invalid series type");
+  }
+
+  // Display the generated series in the browser
+  document.write("<p>" + seriesType + ": " + series.join(", ") + "</p>");
+}
+
+// Generate and display each series
+generateAndDisplaySeries('counting', 1, 15, 1, '');
+generateAndDisplaySeries('reverseCounting', 1, 10, 1, '');
+generateAndDisplaySeries('even', 0, 20, 2, '');
+generateAndDisplaySeries('odd', 1, 19, 2, '');
+generateAndDisplaySeries('custom', 2, 20, 2, 'k');
+
+
+Write a program to print multiplication table of any number using
+for loop. Table number & length should be taken as an input from
+user. 
+
+// Get input from the user for the table number
+var tableNumber = parseInt(prompt("Enter the number for the multiplication table:"));
+
+// Get input from the user for the length of the table
+var tableLength = parseInt(prompt("Enter the length of the multiplication table:"));
+
+// Check if inputs are valid numbers
+if (isNaN(tableNumber) || isNaN(tableLength)) {
+  console.log("Invalid input. Please enter valid numbers.");
+} else {
+  // Print the multiplication table using a for loop
+  console.log("Multiplication Table for " + tableNumber + " (Up to " + tableLength + "):");
+  for (var i = 1; i <= tableLength; i++) {
+    var result = tableNumber * i;
+    console.log(tableNumber + " x " + i + " = " + result);
+  }
+}
+
+
+Write a program to store phone manufacturers (Apple, Samsung,
+Motorola, Nokia, Sony & Haier) in an array. Display the following
+dropdown/select menu in your browser using document.write()
+method: 
+
+// Store phone manufacturers in an array
+var phoneManufacturers = ["Apple", "Samsung", "Motorola", "Nokia", "Sony", "Haier"];
+
+// Start building the select menu HTML string
+var selectMenuHTML = "<select id='phoneSelect'>";
+
+// Iterate through the array to create option elements
+for (var i = 0; i < phoneManufacturers.length; i++) {
+  selectMenuHTML += "<option value='" + phoneManufacturers[i] + "'>" + phoneManufacturers[i] + "</option>";
+}
+
+// Close the select menu tag
+selectMenuHTML += "</select>";
+
+// Display the select menu in the browser using document.write()
+document.write(selectMenuHTML);
+
+
+
+Write a program to store student scores in an array & sort the array
+in ascending order using Array’s sort method. 
+
+// Store student scores in an array
+var studentScores = [85, 92, 78, 95, 89];
+
+// Display the original array
+console.log("Original Scores: " + studentScores.join(", "));
+
+// Sort the array in ascending order using the sort method
+studentScores.sort(function(a, b) {
+  return a - b;
+});
+
+// Display the sorted array
+console.log("Sorted Scores (Ascending Order): " + studentScores.join(", "));
+
+
+Initialize an array with color names. Display the array elements in
+your browser.
+a. Ask the user what color he/she wants to add to the
+beginning & add that color to the beginning of the array.
+Display the updated array in your browser.
+b. Ask the user what color he/she wants to add to the end &
+add that color to the end of the array. Display the updated
+array in your browser.
+c. Add two more color to the beginning of the array. Display
+the updated array in your browser.
+d. Delete the first color in the array. Display the updated
+array in your browser.
+e. Delete the last color in the array. Display the updated array
+in your browser.
+f. Ask the user at which index he/she wants to add a color &
+color name. Then add the color to desired position/index. .
+Display the updated array in your browser.
+g. Ask the user at which index he/she wants to delete color(s)
+& how many colors he/she wants to delete. Then remove the
+same number of color(s) from user-defined position/index. .
+Display the updated array in your browser. 
+
+// Initialize an array with color names
+var colors = ["red", "green", "blue"];
+
+// Display the array elements in the browser
+document.write("<h3>Initial Array:</h3>");
+document.write("<p>" + colors.join(", ") + "</p>");
+
+// a. Ask the user what color he/she wants to add to the beginning & add that color to the beginning of the array
+var colorToAddAtBeginning = prompt("Enter a color to add to the beginning:");
+colors.unshift(colorToAddAtBeginning);
+
+// Display the updated array in the browser
+document.write("<h3>Array After Adding Color at Beginning:</h3>");
+document.write("<p>" + colors.join(", ") + "</p>");
+
+// b. Ask the user what color he/she wants to add to the end & add that color to the end of the array
+var colorToAddAtEnd = prompt("Enter a color to add to the end:");
+colors.push(colorToAddAtEnd);
+
+// Display the updated array in the browser
+document.write("<h3>Array After Adding Color at End:</h3>");
+document.write("<p>" + colors.join(", ") + "</p>");
+
+// c. Add two more colors to the beginning of the array
+colors.unshift("yellow", "orange");
+
+// Display the updated array in the browser
+document.write("<h3>Array After Adding Two More Colors at Beginning:</h3>");
+document.write("<p>" + colors.join(", ") + "</p>");
+
+// d. Delete the first color in the array
+colors.shift();
+
+// Display the updated array in the browser
+document.write("<h3>Array After Deleting First Color:</h3>");
+document.write("<p>" + colors.join(", ") + "</p>");
+
+// e. Delete the last color in the array
+colors.pop();
+
+// Display the updated array in the browser
+document.write("<h3>Array After Deleting Last Color:</h3>");
+document.write("<p>" + colors.join(", ") + "</p>");
+
+// f. Ask the user at which index he/she wants to add a color & color name. Then add the color to desired position/index
+var indexToAddColor = prompt("Enter the index to add a color:");
+var colorToAdd = prompt("Enter the color to add:");
+colors.splice(indexToAddColor, 0, colorToAdd);
+
+// Display the updated array in the browser
+document.write("<h3>Array After Adding Color at Desired Position:</h3>");
+document.write("<p>" + colors.join(", ") + "</p>");
+
+// g. Ask the user at which index he/she wants to delete color(s) & how many colors he/she wants to delete. Then remove the same number of color(s) from the user-defined position/index
+var indexToDelete = prompt("Enter the index to delete color(s):");
+var numberOfColorsToDelete = prompt("Enter the number of colors to delete:");
+colors.splice(indexToDelete, numberOfColorsToDelete);
+
+// Display the updated array in the browser
+document.write("<h3>Array After Deleting Color(s) at Desired Position:</h3>");
+document.write("<p>" + colors.join(", ") + "</p>");
+
+
+Arrays
+a. Declare an empty array using JS literal notation to store
+student names in future.
+b. Declare an empty array using JS object notation to store
+student names in future.
+c. Declare and initialize a strings array.
+d. Declare and initialize a numbers array.
+e. Declare and initialize a boolean array.
+f. Declare and initialize a mixed array.
+g. Declare and Initialize an array and store available education
+qualifications in Pakistan (e.g. SSC, HSC, BCS, BS, BCOM,
+MS, M. Phil., PhD). 
+
+
+var futureStudentNamesLiteral = [];
+
+
+var futureStudentNamesObject = new Array();
+
+
+var stringsArray = ["apple", "banana", "cherry"];
+
+
+var numbersArray = [1, 2, 3, 4, 5];
+
+
+var booleanArray = [true, false, true, false];
+
+
+var mixedArray = ["apple", 5, true, "orange", 10];
+
+
+var educationQualifications = ["SSC", "HSC", "BCS", "BS", "BCOM", "MS", "M. Phil.", "PhD"];
+
+
+
+This if/else statement does not work. Try to fix it:
+var greeting;
+var hour = 13;
+if (hour < 18) {
+greeting = "Good day";
+else
+greeting = "Good evening";
+} 
+
+
+
+var greeting;
+var hour = 13;
+
+if (hour < 18) {
+  greeting = "Good day";
+} else {
+  greeting = "Good evening";
+}
+
+
+
+Write a program that
+a. Store correct password in a JS variable.
+b. Asks user to enter his/her password
+c. Validate the two passwords:
+i. Check if user has entered password. If not, then give
+message “Please enter your password”
+ii. Check if both passwords are same. If they are same,
+show message “Correct! The password you entered
+matches the original password”. Show “Incorrect
+password” otherwise. 
+
+
+// Store correct password in a variable
+var correctPassword = "yourSecretPassword";
+
+// Ask user to enter password
+var userPassword = prompt("Enter your password:");
+
+// Validate the passwords
+if (!userPassword) {
+  console.log("Please enter your password");
+} else if (userPassword === correctPassword) {
+  console.log("Correct! The password you entered matches the original password");
+} else {
+  console.log("Incorrect password");
+}
+
+
+
